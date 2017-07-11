@@ -1,9 +1,12 @@
 console.log('Starting note setter...');
 
-// Check if on right site
+// Get URL
 var url = $(location).attr('href');
 var urlSplit = url.split('&');
 var rightSite = true;
+var paramType = false,
+    paramMode = false,
+    paramScreen = false;
 
 // Check valid URL parameters
 for(var i = 1; i < urlSplit.length; i++){
@@ -11,19 +14,22 @@ for(var i = 1; i < urlSplit.length; i++){
     var parameter = urlSplit[i].split('=');
     switch(parameter[0]) {
         case "type":
-            rightSite = rightSite && (parameter[1] === 'away_detail');
+            paramType = (parameter[1] === 'away_detail');
             break;
         case "mode":
-            rightSite = rightSite && (parameter[1] === 'units');
+            paramMode = (parameter[1] === 'units');
             break;
         case "screen":
-            rightSite = rightSite && (parameter[1] === 'overview_villages');
+            paramScreen = (parameter[1] === 'overview_villages');
             break;
         default:
             rightSite = rightSite;
     }
 
 }
+
+// Check if right site
+rightSite = paramType && paramMode && paramScreen;
 
 if(!rightSite){
 
