@@ -4,9 +4,9 @@ console.log('Starting note setter...');
 var url = $(location).attr('href');
 var urlSplit = url.split('&');
 
-if( !(urlSplit[urlSplit.length - 1] === 'type=away_detail') &&
-    !(urlSplit[urlSplit.length - 2] === 'mode=units') &&
-    !(urlSplit[urlSplit.length - 3] === 'screen=overview_villages')){
+if( !(  urlSplit[urlSplit.length - 1] === 'type=away_detail' &&
+        urlSplit[urlSplit.length - 2] === 'mode=units' &&
+        urlSplit[urlSplit.length - 3] === 'screen=overview_villages')){
 
     console.log('Aborted note setter.');
     UI.ErrorMessage('Du befindest dich auf der falschen Seite');
