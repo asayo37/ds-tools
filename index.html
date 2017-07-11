@@ -1,0 +1,117 @@
+<html>
+
+	<head>
+		<title>DSTools</title>
+		
+		<link rel="stylesheet" href="stylesheet.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="js.js"></script>
+	</head>
+
+	<body>
+		<div id="lz-calculator">
+			<table id="lz-tbl">	
+				<tr>
+					<th><b>Start:</b></th>
+					<th><input id="start" class="coord" type="text"></input></th>
+					<th><img src="https://help.die-staemme.de/images/3/39/Unit_spear.png"></img><img src="https://help.die-staemme.de/images/7/71/Unit_axe.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/6/67/Unit_sword.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/3/3f/Unit_spy.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/d/de/Unit_light.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/6/63/Unit_heavy.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/1/12/Unit_ram.png"></img><img src="https://help.die-staemme.de/images/e/e2/Unit_catapult.png"></img></th>
+					<th><img src="https://help.die-staemme.de/images/9/9f/Unit_snob.png"></img></th>
+				</tr>
+				<tr>
+					<th><b>Ziel:</b></th>
+					<th><input id="ziel" class="coord" type="text"></input></th>
+					<th id="spax"></th>
+					<th id="sw"></th>
+					<th id="spy"></th>
+					<th id="lkav"></th>
+					<th id="skav"></th>
+					<th id="raka"></th>
+					<th id="ag"></th>
+				</tr>
+			</table>
+			
+			<input id="lz-calc" class="btn" type="button" value="Calculate"/>
+		</div>
+		
+		<div id="retime-calculator">
+		<table id="retime-tbl">	
+				<tr>
+					<th>Ankunftszeit:</th>
+					<th><input id="arrival" class="time" type="text"></input></th>
+				</tr>
+				<tr>
+					<th>Angreifer:</th>
+					<th><input id="attacker" class="coord" type="text"></input></th>
+					<th>
+						<select id="slct-attacker" class="slct">
+							<option value="spax">Speer/Axt</option>
+							<option value="sw">Schwert</option>
+							<option value="spy">Spys</option>
+							<option value="lkav">Leichte Kav.</option>
+							<option value="skav">Schwere Kav.</option>
+							<option value="raka">Rammen/Katas</option>
+							<option value="ag">AG</option>
+						</select>
+					</th>
+				</tr>
+				<tr>
+					<th>Verteidiger:</th>
+					<th><input id="defender" class="coord" type="text"></input></th>
+				</tr>
+				<tr>
+					<th>Retimer:</th>
+					<th><input id="retimer" class="coord" type="text"></input></th>
+					<th>
+						<select id="slct-retimer" class="slct">
+							<option value="spax">Speer/Axt</option>
+							<option value="sw">Schwert</option>
+							<option value="spy">Spys</option>
+							<option value="lkav">Leichte Kav.</option>
+							<option value="skav">Schwere Kav.</option>
+							<option value="raka">Rammen/Katas</option>
+							<option value="ag">AG</option>
+						</select>
+					</th>
+
+				</tr>
+			</table>
+			<div id="retime-txt"></div>
+			<input id="retime-calc" class="btn" type="button" value="Calculate">
+		</div>
+
+		<div id="attack-manager">
+			<table id="attmgr-tbl">
+				<tr>
+					<th>Ziel:</th>
+					<th><input id="target" class="coord" type="text"></input></th>
+				</tr>
+				<div id="attacker-list">
+					<tr>
+						<th>Angreifer:</th>
+						<th><input class="coord attack" type="text"></input></th>
+						<th>
+							<select id="slct-retimer" class="slct">
+								<option value="spax">Speer/Axt</option>
+								<option value="sw">Schwert</option>
+								<option value="spy">Spys</option>
+								<option value="lkav">Leichte Kav.</option>
+								<option value="skav">Schwere Kav.</option>
+								<option value="raka">Rammen/Katas</option>
+								<option value="ag">AG</option>
+							</select>
+						</th>
+					</tr>
+				</div>
+				<tr>
+					<th></th><th><input id="add-attacker" type="button" value="+"></th><th></th>
+				</tr>
+			</table>	
+			<input id="retime-calc" class="btn" type="button" value="Calculate">
+		</div>
+	</body>
+</html>

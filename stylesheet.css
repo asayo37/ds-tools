@@ -1,0 +1,65 @@
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+	width: 75px;
+	font-size: 15px;
+	font-weight: 100;
+}
+
+tr:hover {
+	background-color: #f5f5f5
+}
+
+*:focus {
+	outline: none;
+}
+
+.coord {
+	width: 50px;
+}
+
+.time {
+	width: 55px;
+}
+
+.btn {
+	width: 150px;
+	margin: 8px;
+}
+
+#lz-calculator{
+	border: 1px solid black;
+	padding: 8px;
+	width: 820px;
+    margin: 10px;
+}
+
+#retime-calculator{
+	border: 1px solid black;
+	width: 300px;
+	padding: 8px;
+	margin: 10px;
+	float: left;
+}
+
+#attack-manager{
+	border: 1px solid black;
+	width: 300px;
+	padding: 8px;
+	margin: 10px;
+	float: left;
+}
+
+#retime-txt{
+	padding: 8px;
+	text-align: center;
+}
+
+.slct{
+	border-radius: 5px 5px 0px 0px;
+}
