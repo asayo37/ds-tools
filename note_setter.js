@@ -3,13 +3,32 @@ console.log('Starting note setter...');
 // Check if on right site
 var url = $(location).attr('href');
 var urlSplit = url.split('&');
+var rightSite = true;
 
-if( !(  urlSplit[urlSplit.length - 1] === 'type=away_detail' &&
-        urlSplit[urlSplit.length - 2] === 'mode=units' &&
-        urlSplit[urlSplit.length - 3] === 'screen=overview_villages')){
+// Check valid URL parameters
+for(var i = 1; i < urlSplit.length; i++){
+
+    var parameter = urlSplit[i].split('=');
+    switch(parameter[0]) {
+        case "type":
+            rightSite = rightSite && (parameter[1] === 'away_detail');
+            break;
+        case "mode":
+            rightSite = rightSite && (parameter[1] === 'units');
+            break;
+        case "screen":
+            rightSite = rightSite && (parameter[1] === 'overview_villages');
+            break;
+        default:
+            rightSite = rightSite;
+    }
+
+}
+
+if(!rightSite){
 
     console.log('Aborted note setter.');
-    UI.ErrorMessage('Du befindest dich auf der falschen Seite');
+    UI.ErrorMessage('Du befindest dich auf der falschen Seite.');
 
 } else {
 
@@ -112,7 +131,7 @@ if( !(  urlSplit[urlSplit.length - 1] === 'type=away_detail' &&
             if(note){
                 saveNote(id, note);
                 note = '';
-                UI.SuccessMessage('Notizen für ' + villageCount + ' ' + ((villageCount === 1) ? 'Dorf' : 'Dörfer') + ' gespeichert');
+                UI.SuccessMessage('Notizen für ' + villageCount + ' ' + ((villageCount === 1) ? 'Dorf' : 'Dörfer') + ' gespeichert.');
                 console.log('Saved all village notes.');
             }
         }
