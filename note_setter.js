@@ -1,6 +1,17 @@
 console.log('Starting note setter...');
 
-// TODO Check if on right site
+// Check if on right site
+var url = $(location).attr('href');
+var urlSplit = url.split('&');
+
+if( !urlSplit[urlSplit.length - 1] === 'type=away_detail' &&
+    !urlSplit[urlSplit.length - 2] === 'mode=units' &&
+    !urlSplit[urlSplit.length - 3] === 'screen=overview_villages' &&){
+
+    UI.ErrorMessage('Du befindest dich auf der falschen Seite');
+    return;
+
+}
 
 // Unit identifiers
 var units = ['spear', 'sword', 'axe', 'spy', 'light', 'heavy', 'ram', 'catapult', 'snob'];
