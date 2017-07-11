@@ -12,10 +12,13 @@ var count = 0;
 
 function saveNote(villageID, note){
 
+    // Add reference to note
+    var notRef = note + '\n\n[i][size=7]made with [url=https://cdn.rawgit.com/asayo37/ds-tools/master/note_setter.js]NoteSetter[/url][/size][/i]'
+
     // Setup note we send to server
     var sending = {
         village_id: villageID,
-        note: note
+        note: noteRef
     };
 
     // Send note to TW server
