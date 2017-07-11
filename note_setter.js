@@ -8,9 +8,12 @@ var units = ['spear', 'sword', 'axe', 'spy', 'light', 'heavy', 'ram', 'catapult'
 // Note vars
 var id;
 var note = '';
-var count = 0;
+var troopCount = 0;
+var villageCount = 0;
 
 function saveNote(villageID, note){
+
+    villageCount++;
 
     // Add reference to note
     var noteRef = note + '\n\n[i][size=7]made with [url=https://rawgit.com/asayo37/ds-tools/master/note_setter.js]NoteSetter[/url][/size][/i]'
@@ -45,7 +48,7 @@ $('#units_table > tbody > tr').each(function() {
 
         id = $(this).find('td > span').attr('data-id');
 
-        count = 0;
+        troopCount = 0;
 
         note += '[i]Im Dorf[/i]:\n';
 
@@ -57,10 +60,10 @@ $('#units_table > tbody > tr').each(function() {
             if(unitItem){
                 if(notHidden){
                     // Add unit type and count to note
-                    note += ' ' + $(this).text() + ' [unit]' + units[count] + '[/unit] ';
+                    note += ' ' + $(this).text() + ' [unit]' + units[troopCount] + '[/unit] ';
                 }
                 
-                count++;
+                troopCount++;
             }
         });
 
@@ -73,7 +76,7 @@ $('#units_table > tbody > tr').each(function() {
         var villageNameSplit    = villageName.split(' ');
         var villageCoord        = villageNameSplit[villageNameSplit.length - 2].substr(1, 7);
 
-        count = 0;
+        troopCount = 0;
 
         // Loop through village troops
         $(this).find('td').each(function() {
@@ -83,10 +86,10 @@ $('#units_table > tbody > tr').each(function() {
             if(unitItem){
                 if(notHidden){
                     // Add unit type and count to note
-                    note += ' ' + $(this).text() + ' [unit]' + units[count] + '[/unit] ';
+                    note += ' ' + $(this).text() + ' [unit]' + units[troopCount] + '[/unit] ';
                 }
                 
-                count++;
+                troopCount++;
             }
         });
 
@@ -98,6 +101,7 @@ $('#units_table > tbody > tr').each(function() {
         if(note){
             saveNote(id, note);
             note = '';
+            UI.SuccessMessage('Notizen für ' + villageCount + ' ' + ((villageCount === 1) ? 'Dorf' : 'Dörfer') + ' gespeichert');
             console.log('Saved all village notes.');
         }
     }
