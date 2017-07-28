@@ -30,8 +30,5 @@ function Ping(url, timeout) {
 }
 
 Ping("https://de143.die-staemme.de").done(function (success, url, time, on) {
-	UI.InfoMessage('Ping: '+time+'ms');
+	UI.SuccessMessage('Ping: '+time+'ms');
 });
-
-
-
