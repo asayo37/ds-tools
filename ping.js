@@ -1,12 +1,12 @@
-function Ping(url, timeout) {
-	timeout = timeout || 1500;
+function Ping(url) {
+	timeout = 1500;
 	var timer = null;
 
 	return $.Deferred(function deferred(defer) {
 
 			var img = new Image();
 			img.onload = function () { success("onload"); };
-			img.onerror = function () { success("onerror"); };  // onerror is also success, because this means the domain/ip is found, only the image not;
+			img.onerror = function () { success("onerror"); };
 
 			var start = new Date();
 			img.src = url += ("?cache=" + +start);
@@ -26,6 +26,7 @@ function Ping(url, timeout) {
 				cleanup();
 				defer.reject(false, url, new Date() - start, "timeout");
 			}
+			
 	}).promise()
 }
 
