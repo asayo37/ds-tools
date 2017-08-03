@@ -18,7 +18,7 @@ for(var i = 1; i < urlSplit.length; i++){
 
 function farm_both(){
 
-	$('#plunder_list > tbody > tr[id!=""] > td').slice(8, 10).find('a:not(.farm_icon_disabled)').first().trigger('click');
+	$('#plunder_list > tbody > tr[id!=""] > td').filter(':nth-child(9n), :nth-child(10n)').find('a:not(.farm_icon_disabled)').first().trigger('click');
 	
 }
 
