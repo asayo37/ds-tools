@@ -30,6 +30,6 @@ function Ping(url) {
 	}).promise()
 }
 
-Ping("https://de155.die-staemme.de").done(function (success, url, time, on) {
+Ping("https://de174.die-staemme.de").done(function (success, url, time, on) {
 	UI.SuccessMessage('Ping: '+time+'ms');
 });
